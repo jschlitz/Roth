@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace RothCheck
@@ -33,12 +34,13 @@ namespace RothCheck
   }
 
   public class Bracket
-  { 
-    public Bracket(int l, int h, double r) 
+  {
+    [JsonConstructor]
+    public Bracket(int low, int high, double rate) 
     {
-      Low = l;
-      High = h;
-      Rate = r;
+      Low = low;
+      High = high;
+      Rate = rate;
     }
     public int Low { get; set; }
     public int High { get; set; }

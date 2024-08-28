@@ -6,11 +6,10 @@ namespace RothCheck
   {
     static void Main(string[] args)
     {
-      var theArgs = new Args();
-
-      var jso = new JsonSerializerOptions() { WriteIndented= true};
-      
-      File.WriteAllText("Args.json", JsonSerializer.Serialize(theArgs, jso));
+      var theArgs =
+        JsonSerializer.Deserialize<Args>(File.ReadAllText("Args.json"));
+      //var jso = new JsonSerializerOptions() { WriteIndented= true };
+      //File.WriteAllText("Args2.json", JsonSerializer.Serialize(theArgs, jso));
     }
   }
 }
